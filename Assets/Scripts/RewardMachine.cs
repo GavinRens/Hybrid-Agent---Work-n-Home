@@ -75,6 +75,7 @@ public struct rmEdge
 
 public class RewardMachine
 {
+    //TODO: remove List<Observation> observations
     List<Observation> observations;  // Define enum Observation in the code (and same namespace) using the reward machine,
     rmNode activeNode;
     List<rmNode> nodes;

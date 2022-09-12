@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    void Start()
-    {
-        GameObject agentGO = GameObject.FindGameObjectWithTag("agent");
-    }
-
     /// <summary>
     /// The state the agent will end up in if it executes the action in the current state
     /// This is the `ground truth', not a model of what is expected <see cref="Agent.GetNextState(Action, State)"/>
@@ -45,6 +40,7 @@ public class Environment : MonoBehaviour
         {
             foreach (State s in Agent.States)
             {
+                // Simple version:
                 //if (currentState.atWork)
                 //{
                 //    if (s.atWork && currentState.hunger == s.hunger - 1 && currentState.energy == s.energy + 1 &&
@@ -54,6 +50,7 @@ public class Environment : MonoBehaviour
                 //        return s;
                 //}
 
+                // Complex version
                 if (currentState.atWork && s.atWork)
                 {
                     if (s.hunger == currentState.hunger + 1 && s.energy == currentState.energy - 1 &&
@@ -155,6 +152,7 @@ public class Environment : MonoBehaviour
         {
             foreach (State s in Agent.States)
             {
+                // Simple version
                 //if (currentState.atHome)
                 //{
                 //    if (s.atHome && currentState.hunger == s.hunger + 1 &&
@@ -164,6 +162,7 @@ public class Environment : MonoBehaviour
                 //        return s;
                 //}
 
+                // Complex version
                 if (currentState.atHome && s.atHome)
                 {
                     //if (currentState.hunger == s.hunger - 2 && currentState.energy == s.energy - Parameters.MAX_ENERGY / 4)

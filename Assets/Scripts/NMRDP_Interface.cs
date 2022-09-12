@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-//using TreasureHunting;
-//using Patrolling;
 
 
 public interface NMRDP_Interface
@@ -16,6 +14,7 @@ public interface NMRDP_Interface
     /// <returns>A new reward machine</returns>
     RewardMachine DefineRewardMachine();
 
+    //TODO: check necessity/usage of this method
     float TransitionFunction(State from, Action a, State to);
 
     /// <summary>

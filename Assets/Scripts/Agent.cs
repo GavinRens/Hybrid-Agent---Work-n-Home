@@ -1,12 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
+
 
 public abstract class Agent
 {
     State currentState;
     Action currentAction;
     HashSet<Action> actions;
-    //static HashSet<Action> actions;
     static List<Observation> observations;
     static protected List<State> states;
 
@@ -33,7 +32,6 @@ public abstract class Agent
     public Action CurrentAction { get { return currentAction; } set { currentAction = value; } }
 
     public HashSet<Action> Actions { get { return actions; } set { actions = value; } }
-    //public static HashSet<Action> Actions { get { return actions; } }
 
     public static List<Observation> Observations { get { return observations; } }
 

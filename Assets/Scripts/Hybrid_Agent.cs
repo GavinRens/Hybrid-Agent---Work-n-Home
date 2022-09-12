@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 
 public abstract class Hybrid_Agent : Agent, HMBDP_Interface, NMRDP_Interface, Planner_Interface
@@ -163,10 +162,7 @@ public abstract class Hybrid_Agent : Agent, HMBDP_Interface, NMRDP_Interface, Pl
 
     public abstract void Focus();
     
-    // Define the function that maps action-state pairs to observations
-    //public Observation ObservationFunction(Action a, State s);
-
-
+    
     public void UpdateDesires(Action a, State s)
     {
         //foreach (KeyValuePair<string, float> kvp in GoalWeight)
@@ -245,7 +241,6 @@ public abstract class Hybrid_Agent : Agent, HMBDP_Interface, NMRDP_Interface, Pl
             return true;
         return false;
     }
-
 
 
     // For Planner_Interface

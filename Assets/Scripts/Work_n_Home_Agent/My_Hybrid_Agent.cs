@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -172,10 +171,7 @@ public class My_Hybrid_Agent : Hybrid_Agent
     }
 
 
-    // For general well-being / desire satisfaction.
-    // Should be goal-agnostic (??)
     public override float Preference(Action a, State s)
-    //public override float Preference(Goal g, Action a, State s)
     {
         if (a == Action.No_Op)
             return 0;
@@ -401,11 +397,8 @@ public class My_Hybrid_Agent : Hybrid_Agent
     }
 
 
-    // Return the observation perceived in (next state) s after performing a
     public override Observation GetObservation(Action action, State state)
     {
-        //Arrived, InBed, Traveling, Working, HomeResting, Null
-
         if (action == Action.GoWork)
         {
             if (state.traveling)
