@@ -59,7 +59,7 @@ public class My_Hybrid_Agent : Hybrid_Agent
 
     public override RewardMachine DefineRewardMachine()
     {
-        RewardMachine rm = new(Agent.Observations);
+        RewardMachine rm = new();
 
         var atHome = new rmNode("atHome");
         rm.AddNode(atHome);
