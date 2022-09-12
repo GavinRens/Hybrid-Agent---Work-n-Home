@@ -45,8 +45,8 @@ public class AgentController : MonoBehaviour
     {
         if (phase == Phase.Planning)
         {
-            Debug.Log("----------------------------------");
-            Debug.Log("Entered Planning Phase");
+            //Debug.Log("----------------------------------");
+            //Debug.Log("Entered Planning Phase");
             //Debug.Log("CurrentState (before action): " + hybridAgent.CurrentState.ToString());
             //Debug.Log("waitingToGetPath: " + waitingToGetPath);
             //Debug.Log("alreadyPlanning: " + alreadyPlanning);
@@ -55,7 +55,6 @@ public class AgentController : MonoBehaviour
             {
                 alreadyPlanning = true;
                 hybridAgent.CurrentAction = hybridAgent.SelectAction(hybridAgent.CurrentState);
-                //if(hybridAgent.CurrentAction != null)
                 actionStatusText.text = hybridAgent.CurrentAction.ToString();
                 //Debug.Log("CurrentAction: " + hybridAgent.CurrentAction);
 
@@ -171,25 +170,25 @@ public class AgentController : MonoBehaviour
 
         if (phase == Phase.Updating)
         {
-            Debug.Log("----------------------------------");
-            Debug.Log("Entered Updating Phase");
+            //Debug.Log("----------------------------------");
+            //Debug.Log("Entered Updating Phase");
 
             hybridAgent.UpdateDesires(hybridAgent.CurrentAction, hybridAgent.CurrentState);
             hybridAgent.MaintainSatisfactionLevels(hybridAgent.CurrentAction, hybridAgent.CurrentState);
             //hybridAgent.PrintSatLevelsHistory();
 
-            Debug.Log("CurrentState: " + hybridAgent.CurrentState.ToString());
-            Debug.Log("CurrentAction: " + hybridAgent.CurrentAction);
+            //Debug.Log("CurrentState: " + hybridAgent.CurrentState.ToString());
+            //Debug.Log("CurrentAction: " + hybridAgent.CurrentAction);
             State nextState = Environment.GetRealNextState(hybridAgent.CurrentState, hybridAgent.CurrentAction);
             Observation obs = hybridAgent.GetObservation(hybridAgent.CurrentAction, nextState);
-            Debug.Log("Observation: " + obs);
-            Debug.Log("NextState: " + nextState.ToString());
+            //Debug.Log("Observation: " + obs);
+            //Debug.Log("NextState: " + nextState.ToString());
             //Observation obs = Environment.GetRealObservation(hybridAgent.CurrentAction, nextState); // applicable when in partially observable domain
             string rmNodeBefore = hybridAgent.RewardMachine.ActiveNode.name;
-            Debug.Log("RewardMachine.ActiveNode (before): " + hybridAgent.RewardMachine.ActiveNode.name);
+            //Debug.Log("RewardMachine.ActiveNode (before): " + hybridAgent.RewardMachine.ActiveNode.name);
             hybridAgent.RewardMachine.AdvanceActiveNode(obs);
             string rmNodeAfter = hybridAgent.RewardMachine.ActiveNode.name;
-            Debug.Log("RewardMachine.ActiveNode (after): " + hybridAgent.RewardMachine.ActiveNode.name);
+            //Debug.Log("RewardMachine.ActiveNode (after): " + hybridAgent.RewardMachine.ActiveNode.name);
 
             if (rmNodeBefore != rmNodeAfter)  // the active node has changed
             {
