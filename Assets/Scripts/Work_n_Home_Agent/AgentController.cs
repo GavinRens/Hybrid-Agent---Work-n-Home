@@ -119,6 +119,7 @@ public class AgentController : MonoBehaviour
             }
             else if (!alreadyExecuting)
             {
+                alreadyExecuting = true;
                 // Only non-navigation actions allowed here
                 switch (hybridAgent.CurrentAction)
                 {
@@ -132,7 +133,7 @@ public class AgentController : MonoBehaviour
                         Debug.Log("Taking break");
                         break;
                     case Action.AssembleWidget:
-                        Debug.Log("Assemblling widget");
+                        Debug.Log("Assembling widget");
                         break;
                     case Action.Sleep:
                         Debug.Log("Sleeping");
@@ -141,8 +142,30 @@ public class AgentController : MonoBehaviour
                         Debug.Log("Doing nothing");
                         break;
                 }
-                alreadyExecuting = true;
-                Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                switch (hybridAgent.CurrentAction)
+                {
+                    case Action.PlayGame:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                        break;
+                    case Action.Eat:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                        break;
+                    case Action.TakeBreak:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                        break;
+                    case Action.AssembleWidget:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                        break;
+                    case Action.Sleep:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 10f);
+                        break;
+                    case Action.No_Op:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                        break;
+                    default:
+                        Invoke("ChangePhaseToUpdateAfterSeconds", 2f);
+                        break;
+                }
             }
         }
 
