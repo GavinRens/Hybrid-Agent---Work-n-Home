@@ -37,7 +37,7 @@ public class AgentController : MonoBehaviour
 
         actionStatusText = actionStatus.GetComponent<TextMeshPro>();
 
-        Time.timeScale = 1f;  // used for testing onlyw
+        Time.timeScale = 3f;  // used for testing onlyw
     }
 
 
